@@ -1,0 +1,66 @@
+postMerge :
+  preRun: 
+    command:
+      - yarn install
+      - yarn build
+  
+  subModules:          #Not to be changed
+      
+      - name: packages      
+        path : "./packages/__tests__"
+        pattern: 
+          - "./dist/esm/__tests__/1-kernel/**/*.spec.js"
+          - "./dist/esm/__tests__/2-runtime/*.spec.js"
+          - "./dist/esm/__tests__/3-runtime-html/**/*.spec.js"
+        
+        framework : mocha
+          
+        postRun:
+            command:
+              - node --version
+        configFile : "./packages/hoppscotch-app/jest.config.js"
+      
+        
+      
+        
+preMerge : 
+  
+  subModules:          #Not to be changed
+      - name: hoppscotch-cli      #Can be changed
+        path : "./"
+        pattern: 
+          - "./packages/hoppscotch-cli/src/__tests__/**/*.*.ts"
+        
+        framework : jest
+        postRun:
+            command:
+              - node --version
+        
+      - name: hoppscotch-js-sandbox       
+        path : "./"
+        pattern: 
+          - "./packages/hoppscotch-js-sandbox/src/__tests__/**/*.*.ts"
+        
+        framework : jest
+          
+        postRun:
+            command:
+              - node --version
+        configFile : "./packages/hoppscotch-js-sandbox/jest.config.js"
+        
+      - name: hoppscotch-app      
+        path : "./"
+        pattern: 
+          - "./packages/hoppscotch-app/src/__tests__/**/*.*.ts"
+        
+        framework : jest
+        
+          
+        postRun:
+            command:
+              - node --version
+        configFile : "./packages/hoppscotch-app/jest.config.js"
+        
+  
+parallelism: 2 # this will be depricated in future
+version : 2.0
