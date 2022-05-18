@@ -19,7 +19,7 @@ postMerge :
             command:
               - node --version
         configFile : "./packages/hoppscotch-app/jest.config.js"
-      
+        nodeVersion: 17.3.1
         
       
         
