@@ -14,7 +14,9 @@ postMerge :
           - "./dist/esm/__tests__/3-runtime-html/**/*.spec.js"
         
         framework : mocha
-          
+        preRun:
+          command:
+            - yarn build
         postRun:
             command:
               - node --version
