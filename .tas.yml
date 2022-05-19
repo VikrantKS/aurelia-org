@@ -9,9 +9,7 @@ postMerge :
       - name: packages      
         path : "./packages/__tests__"
         pattern: 
-          - "./dist/esm/__tests__/1-kernel/**/*.spec.js"
-          - "./dist/esm/__tests__/2-runtime/*.spec.js"
-          - "./dist/esm/__tests__/3-runtime-html/**/*.spec.js"
+          - "./dist/esm/__tests__/1-kernel/di.get.spec.ts"
         
         framework : mocha
         preRun:
