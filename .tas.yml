@@ -17,7 +17,7 @@ postMerge :
         postRun:
             command:
               - node --version
-        configFile : "./packages/hoppscotch-app/jest.config.js"
+        configFile : ".mocharc.json"
         
         
       
