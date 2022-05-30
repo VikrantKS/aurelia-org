@@ -1,8 +1,7 @@
 postMerge :
   preRun: 
     command:
-      - yarn install
-      - yarn build
+      - npm run init
   
   subModules:          #Not to be changed
       
@@ -14,12 +13,12 @@ postMerge :
         framework : mocha
         preRun:
           command:
-            - yarn build
+            - node --version
         postRun:
             command:
               - node --version
         configFile : "./packages/hoppscotch-app/jest.config.js"
-        nodeVersion: 17.3.1
+        
         
       
         
@@ -64,3 +63,4 @@ preMerge :
   
 parallelism: 2 # this will be depricated in future
 version : 2.0
+nodeVersion: 17.3.1
