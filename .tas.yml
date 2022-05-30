@@ -8,7 +8,7 @@ postMerge :
       - name: packages      
         path : "./packages/__tests__"
         pattern: 
-          - "./dist/esm/__tests__/1-kernel/di.get.spec.ts"
+          - "./1-kernel/*.spec.ts"
         
         framework : mocha
         preRun:
@@ -61,6 +61,5 @@ preMerge :
         configFile : "./packages/hoppscotch-app/jest.config.js"
         
   
-parallelism: 2 # this will be depricated in future
 version : 2.0
 nodeVersion: 17.3.1
