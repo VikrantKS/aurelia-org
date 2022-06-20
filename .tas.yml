@@ -1,7 +1,8 @@
 postMerge :
   preRun: 
     command:
-      - npm run init
+      - npm i
+      - npm run build
   
   subModules:          #Not to be changed
       
@@ -25,40 +26,19 @@ postMerge :
 preMerge : 
   
   subModules:          #Not to be changed
-      - name: hoppscotch-cli      #Can be changed
-        path : "./"
+      - name: packages      
+        path : "./packages/__tests__"
         pattern: 
-          - "./packages/hoppscotch-cli/src/__tests__/**/*.*.ts"
+          - "./dist/esm/__tests__/1-kernel/**/*.spec.js"
         
-        framework : jest
+        framework : mocha
+        preRun:
+          command:
+            - node --version
         postRun:
             command:
               - node --version
-        
-      - name: hoppscotch-js-sandbox       
-        path : "./"
-        pattern: 
-          - "./packages/hoppscotch-js-sandbox/src/__tests__/**/*.*.ts"
-        
-        framework : jest
-          
-        postRun:
-            command:
-              - node --version
-        configFile : "./packages/hoppscotch-js-sandbox/jest.config.js"
-        
-      - name: hoppscotch-app      
-        path : "./"
-        pattern: 
-          - "./packages/hoppscotch-app/src/__tests__/**/*.*.ts"
-        
-        framework : jest
-        
-          
-        postRun:
-            command:
-              - node --version
-        configFile : "./packages/hoppscotch-app/jest.config.js"
+        configFile : ".mocharc.json"
         
   
 version : 2.0
