@@ -10,6 +10,7 @@ postMerge :
       - name: kernel      
         path : "./packages/__tests__"
         pattern: 
+          - "./dist/esm/__tests__/setup-node.js"        
           - "./dist/esm/__tests__/1-kernel/**/*.spec.js"
         
         framework : mocha
