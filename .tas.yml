@@ -1,3 +1,4 @@
+tier: medium
 postMerge :
   preRun: 
     command:
